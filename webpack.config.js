@@ -1,27 +1,30 @@
 import path from "path";
 
 export default {
-  mode: "development", // 개발용. 배포용은 'production'
-  target: "node16", // Node16+ ESM 환경
-  entry: "./src/index.ts", // 기존 파일 그대로
+  mode: "development",
+  target: "node16",
+  entry: "./src/index.ts",
   output: {
     filename: "index.js",
-    path: path.resolve("./dist"), // dist 폴더로 번들링
+    path: path.resolve("./dist"),
     clean: true,
   },
   resolve: {
-    extensions: [".ts", ".js"], // import에서 .ts 확장자 사용 가능
+    extensions: [".ts", ".js"], // .ts 생략 가능
   },
   module: {
     rules: [
       {
         test: /\.ts$/,
-        use: "ts-loader",
+        loader: "ts-loader",
+        options: {
+          transpileOnly: true, // 타입 체크는 tsconfig에서만, 빌드는 Webpack
+        },
         exclude: /node_modules/,
       },
     ],
   },
   experiments: {
-    topLevelAwait: true, // 최상위 await 허용
+    topLevelAwait: true,
   },
 };
