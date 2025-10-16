@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
+    "build": "webpack",
     "start": "node dist/index.js",
     "dev": "tsx watch ./src/index.ts"
   },
@@ -20,8 +20,11 @@
   "devDependencies": {
     "@tsconfig/node-lts": "^22.0.2",
     "@types/node": "^24.7.2",
+    "ts-loader": "^9.5.4",
     "ts-node": "^10.9.2",
     "tsx": "^4.20.6",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "webpack": "^5.102.1",
+    "webpack-cli": "^6.0.1"
   }
 }
