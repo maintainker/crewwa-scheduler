@@ -1,4 +1,4 @@
-import { crawl } from "./crawler/index.ts";
+import { crawl } from "./crawler";
 
 async function main() {
   try {

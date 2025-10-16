@@ -1,13 +1,15 @@
 {
-  "extends": "@tsconfig/node-lts/tsconfig.json",
   "compilerOptions": {
-    "module": "node16",
+    "module": "commonjs",
+    "resolveJsonModule": true,
+    "allowJs": true,
     "esModuleInterop": true,
     "outDir": "dist",
     "rootDir": "src",
-    "strict": true,
-    "allowImportingTsExtensions": true,
-    "noEmit": true
+    "strict": true
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
 }
+// "module": "commonjs",
+// "moduleResolution": "node"
