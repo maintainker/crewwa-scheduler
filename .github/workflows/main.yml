@@ -1,0 +1,29 @@
+name: Cron Crawler
+
+on:
+  schedule:
+    # 매 1분마다 실행
+    - cron: '*/1 * * * *'
+  workflow_dispatch: # 수동 실행도 가능
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build TypeScript
+        run: npm run build
+
+      - name: Run Crawler
+        run: npm start
